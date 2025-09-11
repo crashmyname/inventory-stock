@@ -26,6 +26,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.sign-in');
 });
+Route::get('/check-session', function (Illuminate\Http\Request $request) {
+    return response()->json([
+        'session_id' => session()->getId(),
+        'all_session' => session()->all(),
+        'cookies' => $_COOKIE,
+        'path' => config('session.path'),
+        'cookie_name' => config('session.cookie'),
+    ]);
+});
 // API
 Route::post('/apidata',[ApiController::class, 'ApiData'])->name('apidata');
 // AUTH
