@@ -33,7 +33,7 @@ Route::get('/login',[AuthController::class, 'login'])->name('login');
 Route::post('/login',[AuthController::class, 'onLogin'])->name('onLogin');
 Route::get('/logout',[AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function(){
-    Route::get('/home',[HomeController::class, 'index'])->name('home');
+    Route::get('/homes',[HomeController::class, 'index'])->name('homes');
     Route::get('/mychart',[HomeController::class, 'countChart'])->name('countchart');
     Route::middleware(['role:Administrator,Admin LA,Admin MDF,Admin PP,Admin PO,Admin EVA,Admin ISS,Admin GA'])->group(function(){
         // USER
