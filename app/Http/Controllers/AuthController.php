@@ -21,7 +21,7 @@ class AuthController extends Controller
         ]);
         if(Auth::attempt(['username'=>$request->username,'password'=>$request->password])){
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+            return redirect()->intended('/homes');
         } else {
             $error = [
                 'title' => 'error',
