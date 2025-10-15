@@ -151,7 +151,7 @@ class StockController extends Controller
         $tahun = Carbon::now()->format('Y');
         $stock = Stock::where('barang_id',$barang->barang_id)->where('status_stock',$status)->first();
         $opening = OpeningStock::where('barang_id',$barang->barang_id)->whereMonth('tanggal_opening',$bulan)->whereYear('tanggal_opening',$tahun)->first();
-        if(auth()->user()->role == 'Admin MDF' || auth()->user()->role == 'User MDF' || auth()->user()->role == 'Administrator' || auth()->user()->role == 'Admin GA' || auth()->user()->role == 'Admin PP'){
+        if(auth()->user()->role == 'Admin MDF' || auth()->user()->role == 'User MDF' || auth()->user()->role == 'Administrator' || auth()->user()->role == 'Admin GA' || auth()->user()->role == 'Admin PP' || auth()->user()->role == 'Admin LA'){
             if($stock){
                 if(!$opening){
                     OpeningStock::create([
