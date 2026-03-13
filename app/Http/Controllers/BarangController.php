@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ImportBarang;
 use App\Models\Barang;
 use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
